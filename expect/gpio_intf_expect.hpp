@@ -8,9 +8,19 @@
 
 #include <CppUMockGen.hpp>
 
-#include "../../mbedutils/include/mbedutils/interfaces/gpio_intf.hpp"
+#include "../../../mbedutils/include/mbedutils/interfaces/gpio_intf.hpp"
 
 #include <CppUTestExt/MockSupport.h>
+
+namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
+MockExpectedCall& driver_setup();
+MockExpectedCall& driver_setup(unsigned int __numCalls__);
+} } } } }
+
+namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
+MockExpectedCall& driver_teardown();
+MockExpectedCall& driver_teardown(unsigned int __numCalls__);
+} } } } }
 
 namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
 MockExpectedCall& init(CppUMockGen::Parameter<const mb::hw::gpio::PinConfig &> config, bool __return__);

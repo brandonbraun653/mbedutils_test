@@ -20,23 +20,23 @@ void mb::hw::spi::intf::deinit(const mb::hw::spi::Port_t port)
     mock().actualCall("mb::hw::spi::intf::deinit").withUnsignedIntParameter("port", port);
 }
 
-void mb::hw::spi::intf::write(const mb::hw::spi::Port_t port, const void *const data, const size_t length)
+int mb::hw::spi::intf::write(const mb::hw::spi::Port_t port, const void * data, const size_t length)
 {
-    mock().actualCall("mb::hw::spi::intf::write").withUnsignedIntParameter("port", port).withConstPointerParameter("data", data).withUnsignedLongIntParameter("length", length);
+    return mock().actualCall("mb::hw::spi::intf::write").withUnsignedIntParameter("port", port).withConstPointerParameter("data", data).withUnsignedLongIntParameter("length", length).returnLongIntValue();
 }
 
-void mb::hw::spi::intf::read(const mb::hw::spi::Port_t port, void *const data, const size_t length)
+int mb::hw::spi::intf::read(const mb::hw::spi::Port_t port, void * data, const size_t length)
 {
-    mock().actualCall("mb::hw::spi::intf::read").withUnsignedIntParameter("port", port).withPointerParameter("data", data).withUnsignedLongIntParameter("length", length);
+    return mock().actualCall("mb::hw::spi::intf::read").withUnsignedIntParameter("port", port).withPointerParameter("data", data).withUnsignedLongIntParameter("length", length).returnLongIntValue();
 }
 
-void mb::hw::spi::intf::transfer(const mb::hw::spi::Port_t port, const void *const tx, void *const rx, const size_t length)
+int mb::hw::spi::intf::transfer(const mb::hw::spi::Port_t port, const void * tx, void * rx, const size_t length)
 {
-    mock().actualCall("mb::hw::spi::intf::transfer")
+    return mock().actualCall("mb::hw::spi::intf::transfer")
         .withUnsignedIntParameter("port", port)
         .withConstPointerParameter("tx", tx)
         .withOutputParameter("rx", rx)
-        .withUnsignedLongIntParameter("length", length);
+        .withUnsignedLongIntParameter("length", length).returnLongIntValue();
 }
 
 void mb::hw::spi::intf::lock(const mb::hw::spi::Port_t port)

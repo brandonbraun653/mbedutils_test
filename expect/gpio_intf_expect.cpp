@@ -9,6 +9,30 @@
 #include "gpio_intf_expect.hpp"
 
 namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
+MockExpectedCall& driver_setup()
+{
+    return driver_setup(1);
+}
+MockExpectedCall& driver_setup(unsigned int __numCalls__)
+{
+    MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::hw::gpio::intf::driver_setup");
+    return __expectedCall__;
+}
+} } } } }
+
+namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
+MockExpectedCall& driver_teardown()
+{
+    return driver_teardown(1);
+}
+MockExpectedCall& driver_teardown(unsigned int __numCalls__)
+{
+    MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::hw::gpio::intf::driver_teardown");
+    return __expectedCall__;
+}
+} } } } }
+
+namespace expect { namespace mb$ { namespace hw$ { namespace gpio$ { namespace intf$ {
 MockExpectedCall& init(CppUMockGen::Parameter<const mb::hw::gpio::PinConfig &> config, bool __return__)
 {
     return init(1, config, __return__);
@@ -102,7 +126,7 @@ MockExpectedCall& setPull(unsigned int __numCalls__, CppUMockGen::Parameter<cons
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::hw::gpio::intf::setPull");
     if(port.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("port", port.getValue()); }
     if(pin.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("pin", pin.getValue()); }
-    if(pull.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("pull", pull.getValue()); }
+    if(pull.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withIntParameter("pull", static_cast<int>(pull.getValue())); }
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
 }
@@ -153,7 +177,7 @@ MockExpectedCall& setMode(unsigned int __numCalls__, CppUMockGen::Parameter<cons
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::hw::gpio::intf::setMode");
     if(port.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("port", port.getValue()); }
     if(pin.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("pin", pin.getValue()); }
-    if(mode.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedIntParameter("mode", mode.getValue()); }
+    if(mode.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withIntParameter("mode", static_cast<int>(mode.getValue())); }
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
 }

@@ -6,9 +6,19 @@
  * Generation options: -s c++20
  */
 
-#include "../../mbedutils/include/mbedutils/interfaces/gpio_intf.hpp"
+#include "../../../mbedutils/include/mbedutils/interfaces/gpio_intf.hpp"
 
 #include <CppUTestExt/MockSupport.h>
+
+void mb::hw::gpio::intf::driver_setup()
+{
+    mock().actualCall("mb::hw::gpio::intf::driver_setup");
+}
+
+void mb::hw::gpio::intf::driver_teardown()
+{
+    mock().actualCall("mb::hw::gpio::intf::driver_teardown");
+}
 
 bool mb::hw::gpio::intf::init(const mb::hw::gpio::PinConfig & config)
 {
@@ -37,7 +47,7 @@ void mb::hw::gpio::intf::setAlternate(const mb::hw::gpio::Port_t port, const mb:
 
 void mb::hw::gpio::intf::setPull(const mb::hw::gpio::Port_t port, const mb::hw::gpio::Pin_t pin, const mb::hw::gpio::Pull_t pull)
 {
-    mock().actualCall("mb::hw::gpio::intf::setPull").withUnsignedIntParameter("port", port).withUnsignedIntParameter("pin", pin).withUnsignedIntParameter("pull", pull);
+    mock().actualCall("mb::hw::gpio::intf::setPull").withUnsignedIntParameter("port", port).withUnsignedIntParameter("pin", pin).withIntParameter("pull", static_cast<int>(pull));
 }
 
 void mb::hw::gpio::intf::setDrive(const mb::hw::gpio::Port_t port, const mb::hw::gpio::Pin_t pin, const mb::hw::gpio::Drive_t drive)
@@ -52,7 +62,7 @@ void mb::hw::gpio::intf::setSpeed(const mb::hw::gpio::Port_t port, const mb::hw:
 
 void mb::hw::gpio::intf::setMode(const mb::hw::gpio::Port_t port, const mb::hw::gpio::Pin_t pin, const mb::hw::gpio::Mode_t mode)
 {
-    mock().actualCall("mb::hw::gpio::intf::setMode").withUnsignedIntParameter("port", port).withUnsignedIntParameter("pin", pin).withUnsignedIntParameter("mode", mode);
+    mock().actualCall("mb::hw::gpio::intf::setMode").withUnsignedIntParameter("port", port).withUnsignedIntParameter("pin", pin).withIntParameter("mode", static_cast<int>(mode));
 }
 
 void mb::hw::gpio::intf::attachInterrupt(const mb::hw::gpio::Port_t port, const mb::hw::gpio::Pin_t pin, const mb::hw::gpio::Trigger_t trigger, const mb::hw::gpio::Callback_t & callback)
