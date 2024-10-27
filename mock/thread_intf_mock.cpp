@@ -6,18 +6,23 @@
  * Generation options: -s c++20
  */
 
-#include "../../mbedutils/include/mbedutils/interfaces/thread_intf.hpp"
+#include "../../../mbedutils/include/mbedutils/interfaces/thread_intf.hpp"
 
 #include <CppUTestExt/MockSupport.h>
 
-void mb::thread::intf::initialize()
+void mb::thread::intf::driver_setup()
 {
-    mock().actualCall("mb::thread::intf::initialize");
+    mock().actualCall("mb::thread::intf::driver_setup");
 }
 
-mb::thread::TaskHandle mb::thread::intf::create_task(const mb::thread::TaskConfig & cfg)
+void mb::thread::intf::driver_teardown()
 {
-    return static_cast<mb::thread::TaskHandle>(mock().actualCall("mb::thread::intf::create_task").withParameterOfType("mb::thread::TaskConfig", "cfg", &cfg).returnPointerValue());
+    mock().actualCall("mb::thread::intf::driver_teardown");
+}
+
+mb::thread::TaskHandle mb::thread::intf::create_task(const mb::thread::Task::Config & cfg)
+{
+    return static_cast<mb::thread::TaskHandle>(mock().actualCall("mb::thread::intf::create_task").withParameterOfType("mb::thread::Task::Config", "cfg", &cfg).returnPointerValue());
 }
 
 void mb::thread::intf::destroy_task(mb::thread::TaskHandle task)

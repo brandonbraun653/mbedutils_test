@@ -8,18 +8,23 @@
 
 #include <CppUMockGen.hpp>
 
-#include "../../mbedutils/include/mbedutils/interfaces/thread_intf.hpp"
+#include "../../../mbedutils/include/mbedutils/interfaces/thread_intf.hpp"
 
 #include <CppUTestExt/MockSupport.h>
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& initialize();
-MockExpectedCall& initialize(unsigned int __numCalls__);
+MockExpectedCall& driver_setup();
+MockExpectedCall& driver_setup(unsigned int __numCalls__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::TaskConfig &> cfg, mb::thread::TaskHandle __return__);
-MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::TaskConfig &> cfg, mb::thread::TaskHandle __return__);
+MockExpectedCall& driver_teardown();
+MockExpectedCall& driver_teardown(unsigned int __numCalls__);
+} } } }
+
+namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
+MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__);
+MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {

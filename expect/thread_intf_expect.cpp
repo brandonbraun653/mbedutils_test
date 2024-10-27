@@ -9,27 +9,39 @@
 #include "thread_intf_expect.hpp"
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& initialize()
+MockExpectedCall& driver_setup()
 {
-    return initialize(1);
+    return driver_setup(1);
 }
-MockExpectedCall& initialize(unsigned int __numCalls__)
+MockExpectedCall& driver_setup(unsigned int __numCalls__)
 {
-    MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::initialize");
+    MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::driver_setup");
     return __expectedCall__;
 }
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::TaskConfig &> cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& driver_teardown()
+{
+    return driver_teardown(1);
+}
+MockExpectedCall& driver_teardown(unsigned int __numCalls__)
+{
+    MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::driver_teardown");
+    return __expectedCall__;
+}
+} } } }
+
+namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
+MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__)
 {
     return create_task(1, cfg, __return__);
 }
-MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::TaskConfig &> cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__)
 {
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::create_task");
-    if(cfg.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withParameterOfType("mb::thread::TaskConfig", "cfg", &cfg.getValue()); }
+    if(cfg.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withParameterOfType("mb::thread::Task::Config", "cfg", &cfg.getValue()); }
     __expectedCall__.andReturnValue(static_cast<void*>(__return__));
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
