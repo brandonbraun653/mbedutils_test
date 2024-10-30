@@ -42,7 +42,7 @@ MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::create_task");
     if(cfg.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withParameterOfType("mb::thread::Task::Config", "cfg", &cfg.getValue()); }
-    __expectedCall__.andReturnValue(static_cast<void*>(__return__));
+    __expectedCall__.andReturnValue(static_cast<unsigned long>(__return__));
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
 }
@@ -57,7 +57,7 @@ MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter
 {
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::destroy_task");
-    if(task.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withPointerParameter("task", task.getValue()); }
+    if(task.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedLongIntParameter("task", task.getValue()); }
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
 }
@@ -72,7 +72,7 @@ MockExpectedCall& set_affinity(unsigned int __numCalls__, CppUMockGen::Parameter
 {
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::set_affinity");
-    if(task.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withPointerParameter("task", task.getValue()); }
+    if(task.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedLongIntParameter("task", task.getValue()); }
     if(coreId.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withUnsignedLongIntParameter("coreId", coreId.getValue()); }
     if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
