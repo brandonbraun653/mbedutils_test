@@ -33,11 +33,11 @@ MockExpectedCall& driver_teardown(unsigned int __numCalls__)
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskId __return__)
 {
     return create_task(1, cfg, __return__);
 }
-MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskId __return__)
 {
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::create_task");
     __expectedCall__.withOutputParameterOfTypeReturning("mb::thread::Task::Config", "cfg", &cfg);
@@ -47,11 +47,11 @@ MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Confi
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& destroy_task(CppUMockGen::Parameter<mb::thread::TaskHandle> task)
+MockExpectedCall& destroy_task(CppUMockGen::Parameter<mb::thread::TaskId> task)
 {
     return destroy_task(1, task);
 }
-MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskHandle> task)
+MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskId> task)
 {
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::destroy_task");
@@ -62,11 +62,11 @@ MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& set_affinity(CppUMockGen::Parameter<mb::thread::TaskHandle> task, CppUMockGen::Parameter<size_t> coreId)
+MockExpectedCall& set_affinity(CppUMockGen::Parameter<mb::thread::TaskId> task, CppUMockGen::Parameter<size_t> coreId)
 {
     return set_affinity(1, task, coreId);
 }
-MockExpectedCall& set_affinity(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskHandle> task, CppUMockGen::Parameter<size_t> coreId)
+MockExpectedCall& set_affinity(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskId> task, CppUMockGen::Parameter<size_t> coreId)
 {
     bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::set_affinity");

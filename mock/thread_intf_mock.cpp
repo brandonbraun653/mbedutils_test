@@ -20,17 +20,17 @@ void mb::thread::intf::driver_teardown()
     mock().actualCall("mb::thread::intf::driver_teardown");
 }
 
-mb::thread::TaskHandle mb::thread::intf::create_task(mb::thread::Task::Config & cfg)
+mb::thread::TaskId mb::thread::intf::create_task(mb::thread::Task::Config & cfg)
 {
-    return static_cast<mb::thread::TaskHandle>(mock().actualCall("mb::thread::intf::create_task").withOutputParameterOfType("mb::thread::Task::Config", "cfg", &cfg).returnUnsignedLongIntValue());
+    return static_cast<mb::thread::TaskId>(mock().actualCall("mb::thread::intf::create_task").withOutputParameterOfType("mb::thread::Task::Config", "cfg", &cfg).returnUnsignedLongIntValue());
 }
 
-void mb::thread::intf::destroy_task(mb::thread::TaskHandle task)
+void mb::thread::intf::destroy_task(mb::thread::TaskId task)
 {
     mock().actualCall("mb::thread::intf::destroy_task").withUnsignedLongIntParameter("task", task);
 }
 
-void mb::thread::intf::set_affinity(mb::thread::TaskHandle task, size_t coreId)
+void mb::thread::intf::set_affinity(mb::thread::TaskId task, size_t coreId)
 {
     mock().actualCall("mb::thread::intf::set_affinity").withUnsignedLongIntParameter("task", task).withUnsignedLongIntParameter("coreId", coreId);
 }

@@ -23,18 +23,18 @@ MockExpectedCall& driver_teardown(unsigned int __numCalls__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__);
-MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__);
+MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskId __return__);
+MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskId __return__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& destroy_task(CppUMockGen::Parameter<mb::thread::TaskHandle> task);
-MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskHandle> task);
+MockExpectedCall& destroy_task(CppUMockGen::Parameter<mb::thread::TaskId> task);
+MockExpectedCall& destroy_task(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskId> task);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& set_affinity(CppUMockGen::Parameter<mb::thread::TaskHandle> task, CppUMockGen::Parameter<size_t> coreId);
-MockExpectedCall& set_affinity(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskHandle> task, CppUMockGen::Parameter<size_t> coreId);
+MockExpectedCall& set_affinity(CppUMockGen::Parameter<mb::thread::TaskId> task, CppUMockGen::Parameter<size_t> coreId);
+MockExpectedCall& set_affinity(unsigned int __numCalls__, CppUMockGen::Parameter<mb::thread::TaskId> task, CppUMockGen::Parameter<size_t> coreId);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
