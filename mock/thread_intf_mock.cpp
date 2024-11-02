@@ -20,9 +20,9 @@ void mb::thread::intf::driver_teardown()
     mock().actualCall("mb::thread::intf::driver_teardown");
 }
 
-mb::thread::TaskHandle mb::thread::intf::create_task(const mb::thread::Task::Config & cfg)
+mb::thread::TaskHandle mb::thread::intf::create_task(mb::thread::Task::Config & cfg)
 {
-    return static_cast<mb::thread::TaskHandle>(mock().actualCall("mb::thread::intf::create_task").withParameterOfType("mb::thread::Task::Config", "cfg", &cfg).returnUnsignedLongIntValue());
+    return static_cast<mb::thread::TaskHandle>(mock().actualCall("mb::thread::intf::create_task").withOutputParameterOfType("mb::thread::Task::Config", "cfg", &cfg).returnUnsignedLongIntValue());
 }
 
 void mb::thread::intf::destroy_task(mb::thread::TaskHandle task)

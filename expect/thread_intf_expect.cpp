@@ -33,17 +33,15 @@ MockExpectedCall& driver_teardown(unsigned int __numCalls__)
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__)
 {
     return create_task(1, cfg, __return__);
 }
-MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__)
+MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__)
 {
-    bool __ignoreOtherParams__ = false;
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::thread::intf::create_task");
-    if(cfg.isIgnored()) { __ignoreOtherParams__ = true; } else { __expectedCall__.withParameterOfType("mb::thread::Task::Config", "cfg", &cfg.getValue()); }
+    __expectedCall__.withOutputParameterOfTypeReturning("mb::thread::Task::Config", "cfg", &cfg);
     __expectedCall__.andReturnValue(static_cast<unsigned long>(__return__));
-    if(__ignoreOtherParams__) { __expectedCall__.ignoreOtherParameters(); }
     return __expectedCall__;
 }
 } } } }

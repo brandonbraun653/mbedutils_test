@@ -23,8 +23,8 @@ MockExpectedCall& driver_teardown(unsigned int __numCalls__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
-MockExpectedCall& create_task(CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__);
-MockExpectedCall& create_task(unsigned int __numCalls__, CppUMockGen::Parameter<const mb::thread::Task::Config &> cfg, mb::thread::TaskHandle __return__);
+MockExpectedCall& create_task(mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__);
+MockExpectedCall& create_task(unsigned int __numCalls__, mb::thread::Task::Config & cfg, mb::thread::TaskHandle __return__);
 } } } }
 
 namespace expect { namespace mb$ { namespace thread$ { namespace intf$ {
