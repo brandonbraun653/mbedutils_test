@@ -24,7 +24,7 @@ namespace fake::memory::nor
   Classes
   ---------------------------------------------------------------------------*/
 
-  FileFlash::FileFlash() : mFilePath(), mConfig(), mFile()
+  FileFlash::FileFlash() : mFilePath(), mFile(), mConfig()
   {
   }
 
