@@ -13,13 +13,13 @@
 #include <CppUTestExt/MockSupport.h>
 
 namespace expect { namespace mb$ { namespace time$ {
-MockExpectedCall& millis(size_t __return__);
-MockExpectedCall& millis(unsigned int __numCalls__, size_t __return__);
+MockExpectedCall& millis(int64_t __return__);
+MockExpectedCall& millis(unsigned int __numCalls__, int64_t __return__);
 } } }
 
 namespace expect { namespace mb$ { namespace time$ {
-MockExpectedCall& micros(size_t __return__);
-MockExpectedCall& micros(unsigned int __numCalls__, size_t __return__);
+MockExpectedCall& micros(int64_t __return__);
+MockExpectedCall& micros(unsigned int __numCalls__, int64_t __return__);
 } } }
 
 namespace expect { namespace mb$ { namespace time$ {

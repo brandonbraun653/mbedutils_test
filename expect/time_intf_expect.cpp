@@ -9,27 +9,27 @@
 #include "time_intf_expect.hpp"
 
 namespace expect { namespace mb$ { namespace time$ {
-MockExpectedCall& millis(size_t __return__)
+MockExpectedCall& millis(int64_t __return__)
 {
     return millis(1, __return__);
 }
-MockExpectedCall& millis(unsigned int __numCalls__, size_t __return__)
+MockExpectedCall& millis(unsigned int __numCalls__, int64_t __return__)
 {
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::time::millis");
-    __expectedCall__.andReturnValue(static_cast<unsigned long>(__return__));
+    __expectedCall__.andReturnValue(static_cast<long long>(__return__));
     return __expectedCall__;
 }
 } } }
 
 namespace expect { namespace mb$ { namespace time$ {
-MockExpectedCall& micros(size_t __return__)
+MockExpectedCall& micros(int64_t __return__)
 {
     return micros(1, __return__);
 }
-MockExpectedCall& micros(unsigned int __numCalls__, size_t __return__)
+MockExpectedCall& micros(unsigned int __numCalls__, int64_t __return__)
 {
     MockExpectedCall& __expectedCall__ = mock().expectNCalls(__numCalls__, "mb::time::micros");
-    __expectedCall__.andReturnValue(static_cast<unsigned long>(__return__));
+    __expectedCall__.andReturnValue(static_cast<long long>(__return__));
     return __expectedCall__;
 }
 } } }

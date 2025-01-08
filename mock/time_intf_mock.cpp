@@ -10,14 +10,14 @@
 
 #include <CppUTestExt/MockSupport.h>
 
-size_t mb::time::millis()
+int64_t mb::time::millis()
 {
-    return static_cast<size_t>(mock().actualCall("mb::time::millis").returnUnsignedLongIntValue());
+    return static_cast<int64_t>(mock().actualCall("mb::time::millis").returnLongLongIntValue());
 }
 
-size_t mb::time::micros()
+int64_t mb::time::micros()
 {
-    return static_cast<size_t>(mock().actualCall("mb::time::micros").returnUnsignedLongIntValue());
+    return static_cast<int64_t>(mock().actualCall("mb::time::micros").returnLongLongIntValue());
 }
 
 void mb::time::delayMilliseconds(const size_t val)
